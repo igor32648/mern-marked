@@ -14,7 +14,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    avatar: {
+        type: String,
+        default: "https://thumbs.dreamstime.com/b/illustration-profile-icon-avatar-young-farmer-male-237709823.jpg" 
+    },
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
