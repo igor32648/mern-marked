@@ -24,8 +24,7 @@ export default function Contact({listing}) {
     {landlord && (
       <div className='flex flex-col gap-2'>
         <p>
-          Contact 
-          <span className='font-semibold'>{landlord.username}
+          Contact <span className='font-semibold'>{landlord.username}
           </span> for <span className='font-semibold'>{listing.name}</span>
         </p>
         <textarea name='message' id='message' rows='2' value={message}
