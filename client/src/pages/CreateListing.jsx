@@ -134,7 +134,7 @@ export default function CreateListing() {
             setError(error.message);
             setLoading(false);
         }
-    }
+    };
 
     return (
         <main className='p-3 max-w-4xl mx-auto'>
