@@ -50,9 +50,9 @@ export default function Home() {
     <div>
       {/* top */}
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
-        <h1 className='text-slate-700 font-bold text-3xl
+        <h1 className=' font-bold text-3xl
         lg:text-6xl'>
-          Find your <span className='text-slate-500'>dream</span> home 
+          Find your <span className='text-blue-400'>dream</span> home 
           <br />
           right here
         </h1>
@@ -62,7 +62,7 @@ export default function Home() {
           <br />
           We have any kind of place you dreamed of.
         </div>
-        <Link to={'/search'} className='text-xs sm:text-sm text-blue-800
+        <Link to={'/search'} className='text-xs sm:text-sm text-blue-800 dark:text-blue-600
         font-bold hover:underline'>
           Let's get started
         </Link>
@@ -88,11 +88,11 @@ export default function Home() {
             offerListings && offerListings.length > 0 && (
               <div className=''>
                 <div className='my-3'>
-                  <h2 className='text-2xl font-semibold text-slate-600'>
+                  <h2 className='text-2xl font-semibold'>
                     Recent Offers
                   </h2>
                   <Link to={'/search?offer=true'}
-                  className='text-sm text-blue-800 hover:underline'>
+                  className='text-sm text-blue-800 dark:text-blue-400 hover:underline'>
                     Show more offers
                   </Link>
                 </div>
@@ -110,11 +110,11 @@ export default function Home() {
             rentListings && rentListings.length > 0 && (
               <div className=''>
                 <div className='my-3'>
-                  <h2 className='text-2xl font-semibold text-slate-600'>
+                  <h2 className='text-2xl font-semibold'>
                     Recent places for rent
                   </h2>
                   <Link to={'/search?type=rent'}
-                  className='text-sm text-blue-800 hover:underline'>
+                  className='text-sm text-blue-800 dark:text-blue-400 hover:underline'>
                     Show more places for rent
                   </Link>
                 </div>
@@ -132,11 +132,11 @@ export default function Home() {
             saleListings && saleListings.length > 0 && (
               <div className=''>
                 <div className='my-3'>
-                  <h2 className='text-2xl font-semibold text-slate-600'>
+                  <h2 className='text-2xl font-semibold'>
                     Recent places for sale
                   </h2>
                   <Link to={'/search?type=sale'}
-                  className='text-sm text-blue-800 hover:underline'>
+                  className='text-sm text-blue-800 dark:text-blue-400 hover:underline'>
                     Show more for sale
                   </Link>
                 </div>

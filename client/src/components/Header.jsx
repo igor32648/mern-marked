@@ -1,12 +1,21 @@
+import { Button, Navbar, TextInput, Avatar, Dropdown } from 'flowbite-react';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { toggleTheme } from '../redux/theme/themeSlice';
+
 
 export default function Header() {
-  const {currentUser} = useSelector(state => state.user)
+  const path = useLocation().pathname;
+  const {currentUser} = useSelector(state => state.user);
+  const { theme } =  useSelector((state) => state.theme);
   const [seacrhTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams(window.location.search);
@@ -21,49 +30,95 @@ export default function Header() {
       setSearchTerm(searchTermFromUrl);
     }
   }, [location.search]);
-  return (
-    <header className='bg-slate-200 shadow-md'>
-      <div className='flex justify-between items-center
-      max-w-6xl mx-auto p-3'>
+
+  const handleSignOut = async () => {
+    try {
+      const res = await fetch('/api/auth/signout');
+      const data = await res.json();
+      if (data.success === false) {
+        return;
+      }
+    } catch (error) {
+
+    }
+  };
+
+  return ( 
+    <Navbar className='border-b-2'>
       <Link to='/'>
       <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-        <span className='text-slate-500'>Cabedelo</span>
-        <span className="text-slate-700">Market</span>
+        <span className='text-slate-500 dark:text-slate-300'>Cabedelo</span>
+        <span className="text-slate-700 dark:text-white">Market</span>
       </h1>
       </Link>
-      <form onSubmit={handleSubmit} className="bg-slate-100 p-3 rounded-lg flex items-center">
-        <input 
-          type="text" 
-          placeholder="Search..." 
-          className="bg-transparent focus:outline-none w-24 sm:w-64"
-          value={seacrhTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)}
+      <form onSubmit={handleSubmit}>
+        <TextInput 
+            type="text"  
+            placeholder="Search..." 
+            value={seacrhTerm} 
+            rightIcon={FaSearch}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className='hidden lg:inline'
         />
-        <button>
-          <FaSearch className="text-slate-500" />
-        </button>
       </form>
-      <ul className='flex gap-4'>
-        <Link to='/'>
-          <li className='hidden sm:inline text-slate-700 hover:underline'>
-            Home
-          </li>
-        </Link>
-        <Link to='/about'>
-          <li className='hidden sm:inline text-slate-700 hover:underline'>
-            About
-          </li>
-        </Link>
-        <Link to='profile'>
-          {currentUser ? (
-              <img className='rounded-full h-7 w-7 object-cover'
-              src={currentUser.avatar} alt='profile' />
-            ): (
-              <li className='text-slate-700 hover:underline'>Sign In</li>
-          )}
-        </Link>
-      </ul>
-      </div>
-    </header>
+      <div className='flex gap-2 md:order-2 items-center'>
+      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+        <AiOutlineSearch />
+      </Button>
+        <Button 
+          className='w-12 h-10 hidden sm:inline' 
+          color='gray' 
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === 'light' ? <FaSun /> : <FaMoon />}
+        </Button>
+        {currentUser ? (
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <Avatar alt='user' img={currentUser.avatar} rounded />
+            }
+          >
+            <Dropdown.Header>
+              <span className='block text-sm'>@{currentUser.username}</span>
+              <span className='block text-sm font-medium truncate'>{currentUser.email}</span>
+            </Dropdown.Header>
+            <Link to={'/profile'}>
+              <Dropdown.Item>Profile</Dropdown.Item>
+            </Link>
+            <Link to={'/create-listing'}>
+              <Dropdown.Item>Create Listing</Dropdown.Item>
+            </Link>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={handleSignOut}>Sign out</Dropdown.Item>
+          </Dropdown>      
+        ): (
+          <Link to='/sign-in'>
+              <li className='hover:underline'>Sign In</li>
+          </Link>
+            )}
+          <Navbar.Toggle />
+        </div>
+        <Navbar.Collapse>
+          <Navbar.Link active={path === "/"} as={'div'}>
+            <Link to='/'>Home</Link>
+          </Navbar.Link>
+          <Navbar.Link active={path === "/about"} as={'div'}>
+            <Link to='/about'>About</Link>
+          </Navbar.Link>
+          <Navbar.Link active={path === "/search?offer=true"} as={'div'}>
+            <Link to='/search?offer=true'>Offer</Link>
+          </Navbar.Link>
+          <Navbar.Link active={path === "/search?type=rent"} as={'div'}>
+            <Link to='/search?type=rent'>Rent</Link>
+          </Navbar.Link>
+          <Navbar.Link active={path === "/search?type=sale"} as={'div'}>
+            <Link to='/search?type=sale'>Sale</Link>
+          </Navbar.Link>
+      </Navbar.Collapse>
+      
+    </Navbar>
   )
 }

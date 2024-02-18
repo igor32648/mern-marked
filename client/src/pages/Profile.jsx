@@ -148,21 +148,21 @@ export default function Profile() {
         className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2'/>
         <p className='text-sm self-center'>
           {fileUploadError ? (
-            <span className='text-red-700'>Error uploading the image</span>
+            <span className='text-red-700 dark:text-red-400'>Error uploading the image</span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className='text-green-700'>Image uploaded</span>
+            <span className='text-green-700 dark:text-green-400'>Image uploaded</span>
           ) : (
             ''
           )}
         </p>
         <input type='text' placeholder='Username' id='username'
-        defaultValue={currentUser.username} className='border p-3 rounded-lg' onChange={handleChange}/>
+        defaultValue={currentUser.username} className='border p-3 rounded-lg dark:bg-slate-800' onChange={handleChange}/>
         <input type='email' placeholder='Email' id='email'
-        defaultValue={currentUser.email} className='border p-3 rounded-lg' onChange={handleChange}/>
+        defaultValue={currentUser.email} className='border p-3 rounded-lg dark:bg-slate-800' onChange={handleChange}/>
         <input type='password' placeholder='Password' id='password'
-        className='border p-3 rounded-lg' onChange={handleChange}/>
+        className='border p-3 rounded-lg dark:bg-slate-800' onChange={handleChange}/>
         <button disabled={loading} className='bg-slate-700 text-white 
         rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
           {loading ? 'Loading...' : 'Update'}
@@ -173,32 +173,32 @@ export default function Profile() {
         </Link>
       </form>
       <div className='flex justify-between mt-5'>
-        <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete Account</span>
-        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>Sign Out</span>
+        <span onClick={handleDeleteUser} className='text-red-700 dark:text-red-500 cursor-pointer'>Delete Account</span>
+        <span onClick={handleSignOut} className='text-red-700 dark:text-red-500 cursor-pointer'>Sign Out</span>
       </div>
-      <p className='text-red-700 mt-5'>{error ? error : ''}</p>
-      <p className='text-green-700 mt-5'>{updateSuccess ? 'User updated' : ''}</p>
-      <button onClick={handleShowListings} className='text-green-700 w-full'>
+      <p className='text-red-700 dark:text-red-500 mt-5'>{error ? error : ''}</p>
+      <p className='text-green-700 dark:text-green-400 mt-5'>{updateSuccess ? 'User updated' : ''}</p>
+      <button onClick={handleShowListings} className='text-green-700  dark:text-green-400 w-full'>
         Show Listings
       </button>
-      <p className='text-red-700 mt-5'>{showListingsError ? "No listings to show" : ''}</p>
+      <p className='text-red-700 dark:text-red-500 mt-5'>{showListingsError ? "No listings to show" : ''}</p>
       {userListings && userListings.length > 0 &&
       <div className='flex flex-col gap-4'>
         <h1 className='text-center mt-7 text-2xl font-semibold'>Your Listings</h1>
         {userListings.map((listing) =>
-          <div key={listing._id} className='border rounded-lg p-3 flex justify-between items-center gap-4'> 
+          <div key={listing._id} className='border rounded-lg p-3 flex justify-between items-center gap-4 dark:bg-slate-800'> 
             <Link to={`/listing/${listing._id}`}>
               <img src={listing.imageUrls[0]} alt='listing cover' 
               className='h-16 w-16 object-contain'/>
             </Link>
             <Link className='text-slate-700 font-semibold flex-1 hover:underline truncate'
             to={`/listing/${listing._id}`}>
-              <p>{listing.name}</p>
+              <p className='dark:text-white'>{listing.name}</p>
             </Link>
             <div className='flex flex-col item-center'>
-              <button onClick={() => handleListingDelete(listing._id)} className='text-red-700 uppercase'>Delete</button>
+              <button onClick={() => handleListingDelete(listing._id)} className='text-red-700 dark:text-red-400 uppercase'>Delete</button>
               <Link to={`/update-listing/${listing._id}`}>
-                <button className='text-green-700 uppercase'>Edit</button>
+                <button className='text-green-700 dark:text-green-400 uppercase'>Edit</button>
               </Link>
             </div>
           </div>

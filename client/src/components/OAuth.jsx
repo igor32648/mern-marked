@@ -3,7 +3,9 @@ import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
- 
+import { AiFillGoogleCircle } from 'react-icons/ai';
+
+
 export default function OAuth() {
 const dispatch = useDispatch();
 const navigate = useNavigate();
@@ -34,8 +36,9 @@ const handleGoogleClick = async () => {
 
   return (
     <button onClick={handleGoogleClick} type='button'
-    className='bg-red-700 text-white p-3 rounded-lg
+    className='flex items-center justify-center bg-red-700 text-white p-3 rounded-lg
     uppercase hover:opacity-95'>
+      <AiFillGoogleCircle className='w-6 h-6 mr-2'/>
       Continue with google
     </button>
   )
