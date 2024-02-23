@@ -109,7 +109,7 @@ The codebase is divided into two main repositories: `client` for the frontend an
     npm install
     ```
 
-3. **Install Dependencies for Backend**: Similarly, navigate to the backend directory and install the dependencies:
+3. **Install Dependencies for Backend**: Similarly, on the project root directory, install the dependencies:
     
      ```bash
      npm install
@@ -117,16 +117,16 @@ The codebase is divided into two main repositories: `client` for the frontend an
 
 ### Setting Up Environment Variables
 
-4. **Create `.env` File**: Inside the root directory, create a new file named `.env`.
+4. **Create `.env` Files**: Inside the root and in client directory, create a new file named `.env`.
 
-5. **Save Database and JWT Secret Variables**: In the `.env` file, save the variables for database access and JWT secret like this:
+5. **Save Database and JWT Secret Variables**: In the root `.env` file, save the variables for database access and JWT secret like this:
     ```
     MONGO=<your-mongodb-uri>
     JWT_SECRET=<your-jwt-secret>
     ```
-6. **Save the Firebase API key secret**: Within the client repository, create another .env file with your secret key for the Firebase API.
+6. **Save the Firebase API key secret**: Within the client repository, create another `.env` file with your secret key for the Firebase API.
     ```
-    VITE_FIREBASE_API_KEY:<your-firebase-api-key>
+    VITE_FIREBASE_API_KEY=<your-firebase-api-key>
 
 ### Setting Up Firebase Configuration
 
