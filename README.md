@@ -109,34 +109,37 @@ The codebase is divided into two main repositories: `client` for the frontend an
     npm install
     ```
 
-  **Install Dependencies for Backend**: Similarly, navigate to the backend directory and install the dependencies:
+3. **Install Dependencies for Backend**: Similarly, navigate to the backend directory and install the dependencies:
     
-        ```bash
-        npm install
-        ```
+     ```bash
+     npm install
+     ```
 
 ### Setting Up Environment Variables
 
-3. **Create `.env` File**: Inside the backend directory, create a new file named `.env`.
+4. **Create `.env` File**: Inside the root directory, create a new file named `.env`.
 
-4. **Save Database and JWT Secret Variables**: In the `.env` file, save the variables for database access and JWT secret like this:
+5. **Save Database and JWT Secret Variables**: In the `.env` file, save the variables for database access and JWT secret like this:
     ```
-    MONGODB_URI=<your-mongodb-uri>
+    MONGO=<your-mongodb-uri>
     JWT_SECRET=<your-jwt-secret>
     ```
+6. **Save the Firebase API key secret**: Within the client repository, create another .env file with your secret key for the Firebase API.
+    ```
+    VITE_FIREBASE_API_KEY:<your-firebase-api-key>
 
 ### Setting Up Firebase Configuration
 
-5. **Create `firebase.js` File**: Inside the client directory, create a new file named `firebase.js`.
+7. **Create `firebase.js` File**: Inside the client directory, create a new file named `firebase.js`.
 
-6. **Save Firebase Configuration**: In the `firebase.js` file, save the Firebase configuration for authentication and image storage like this:
+8. **Save Firebase Configuration**: In the `firebase.js` file, save the Firebase configuration for authentication and image storage like this:
     ```javascript
     import firebase from 'firebase/app';
     import 'firebase/auth';
     import 'firebase/storage';
 
     const firebaseConfig = {
-      apiKey: "<your-api-key>",
+      apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
       authDomain: "<your-auth-domain>",
       projectId: "<your-project-id>",
       storageBucket: "<your-storage-bucket>",
@@ -154,7 +157,7 @@ The codebase is divided into two main repositories: `client` for the frontend an
 
 ### Running the Code
 
-6. **Run Frontend**: In the client directory, start the frontend server:
+9. **Run Frontend**: In the client directory, start the frontend server:
 
     ```bash
     npm start
@@ -162,7 +165,7 @@ The codebase is divided into two main repositories: `client` for the frontend an
 
     This will start the frontend server on a default port (usually port 5173).
 
-7. **Run Backend**: In the root directory, start the backend server:
+10. **Run Backend**: In the root directory, start the backend server:
 
     ```bash
     npm start
@@ -172,23 +175,25 @@ The codebase is divided into two main repositories: `client` for the frontend an
 
 ### Accessing the Application
 
-8. **Access the Application**: With both frontend and backend servers running, you can access the application in your web browser. Typically, the frontend will be accessible at `http://localhost:5173`, and the backend API endpoints will be accessible at `http://localhost:3000`.
+11. **Access the Application**: With both frontend and backend servers running, you can access the application in your web browser. Typically, the frontend will be accessible at `http://localhost:5173`, and the backend API endpoints will be accessible at `http://localhost:3000`.
 
-### Creating a MongoDB Account and Getting Access Link
+### Setting the Databases
 
-8. **Create a MongoDB Account**: Go to the MongoDB website and create an account if you don't have one already.
+## Creating a MongoDB Account and Getting Access Link
 
-9. **Get Database Access Link**: After logging in, create a new cluster and database. Once created, navigate to the "Connect" tab and copy the connection string.
+1. **Create a MongoDB Account**: Go to the MongoDB website and create an account if you don't have one already.
 
-### Creating a Firebase Account and Setting Up a Project
+2. **Get Database Access Link**: After logging in, create a new cluster and database. Once created, navigate to the "Connect" tab and copy the connection string.
 
-10. **Create a Firebase Account**: Go to the Firebase website and sign in with your Google account or create a new one.
+## Creating a Firebase Account and Setting Up a Project
 
-11. **Set Up a Project**: Once logged in, click on "Add project" and follow the prompts to create a new Firebase project.
+3. **Create a Firebase Account**: Go to the Firebase website and sign in with your Google account or create a new one.
 
-12. **Enable Authentication and Storage**: In your Firebase project dashboard, navigate to the "Authentication" section and enable Google sign-in. Then, go to the "Storage" section and enable storage for your project.
+4. **Set Up a Project**: Once logged in, click on "Add project" and follow the prompts to create a new Firebase project.
 
-13. **Get Firebase Configuration**: In the Firebase project settings, you'll find the configuration details needed for `firebase.js`.
+5. **Enable Authentication and Storage**: In your Firebase project dashboard, navigate to the "Authentication" section and enable Google sign-in. Then, go to the "Storage" section and enable storage for your project.
+
+6. **Get Firebase Configuration**: In the Firebase project settings, you'll find the configuration details needed for `firebase.js`.
 
 ### Conclusion
 
