@@ -1,5 +1,7 @@
 # Cabedelo Estate Market Application
+![Captura de tela 2024-02-23 071035](https://github.com/igor32648/mern-market/assets/92551032/6c666665-9464-4028-8e38-df8896fcf969)
 Welcome to my Real Estate Speculation Website project! This project aims to provide users with a platform to buy, sell, or rent houses and apartments. Users can either create an account or log in with their Google account to start creating listings for properties they want to sell or rent out.
+![Captura de tela 2024-02-23 070830](https://github.com/igor32648/mern-market/assets/92551032/c69d95c6-bc97-4fef-af1d-64a3a54f7d4d)
 
 ## Technologies Used
 MERN Stack
@@ -26,18 +28,40 @@ Firebase is used for storing images and handling image uploads within the applic
 ## Pages
 
 ### Home Page
+![Captura de tela 2024-02-23 065715](https://github.com/igor32648/mern-market/assets/92551032/124771c8-1cfd-4303-92cf-68bf49ec5f51)
+
 The home page features a beautifully stylized slider showcasing the latest offers, providing an inviting and intuitive first look that encourages users to browse through the listings. Additionally, there's a small list displaying the latest offers, rentals, and sales added to the website. Each listing is presented in a card format, showing key information such as price (with offer if available), number of bathrooms and bedrooms represented with intuitive icons. Grammar is corrected dynamically, ensuring singular forms when necessary.
 
+### Sign In & Sign Up Pages
+![Captura de tela 2024-02-23 070932](https://github.com/igor32648/mern-market/assets/92551032/760bcc47-23dd-4bd7-8189-91953c0ce5ca)
+![Captura de tela 2024-02-23 070953](https://github.com/igor32648/mern-market/assets/92551032/868c98e5-e66a-42e6-9635-137192e5bf9b)
+The Sign In and Sign Up pages offer users the flexibility to either create a new account or log in using their existing Google account. 
+
 ### Ad Page
+![Captura de tela 2024-02-23 071453](https://github.com/igor32648/mern-market/assets/92551032/d0afef33-148b-48df-90fe-bc625f2df3fb)
+![Captura de tela 2024-02-23 071527](https://github.com/igor32648/mern-market/assets/92551032/d6144495-a867-4386-86ed-86fe6687473a)
+
 Clicking on the slider or individual listing cards redirects users to a detailed ad page. Here, users can view a slider displaying photos of the listing. A share button located in the top-right corner allows users to copy the listing's URL to their device's clipboard. Pricing, description, number of bedrooms, bathrooms, furniture status, and parking availability are intuitively displayed using icons.
 
+![Captura de tela 2024-02-23 074354](https://github.com/igor32648/mern-market/assets/92551032/20df865f-319e-4bc7-9195-be8b2a03139a)
+
+If you like the listing, you can click on "Contact the Landlord" and send an email to the property owner.
+
 ### User Profile
+![Captura de tela 2024-02-23 071102](https://github.com/igor32648/mern-market/assets/92551032/40fef085-144b-4cec-a0dd-bd385491b58e)
+![Captura de tela 2024-02-23 071126](https://github.com/igor32648/mern-market/assets/92551032/86ddbe1b-bef0-4347-9d8c-15aacf452833)
+
 In the user profile section, users can modify their user information, change their profile picture, create a new listing, view the list of created listings, edit listing information, or delete listings. If there are any issues changing user data or if no listings have been created yet, relevant information is displayed to the user.
 
-### Create Listing Page
-The create listing page features an intuitive form. Users can input a name, description, specify whether it's a rental or sale listing, mark the number of bedrooms, bathrooms, parking availability, and whether the property is furnished. Additionally, users can advertise an offer if desired. Listings with offers are prominently displayed on the home page, and prices dynamically update with the listing. Users can easily save the listing after uploading between one to six photos. If there are any errors, messages are displayed to the user indicating what needs to be corrected to meet listing requirements.
+### Create/Edit Listing Page
+![Captura de tela 2024-02-23 071156](https://github.com/igor32648/mern-market/assets/92551032/c70fd5fa-facb-4687-8371-5dd932dfb465)
+![Captura de tela 2024-02-23 071344](https://github.com/igor32648/mern-market/assets/92551032/70ef6cd5-57d2-4d87-9532-bd10bdbfc650)
+
+The create and edit listing page features an intuitive form. Users can input a name, description, specify whether it's a rental or sale listing, mark the number of bedrooms, bathrooms, parking availability, and whether the property is furnished. Additionally, users can advertise an offer if desired. Listings with offers are prominently displayed on the home page, and prices dynamically update with the listing. Users can easily save the listing after uploading between one to six photos. If there are any errors, messages are displayed to the user indicating what needs to be corrected to meet listing requirements.
 
 ### Advanced Search Page
+![Captura de tela 2024-02-23 074117](https://github.com/igor32648/mern-market/assets/92551032/c9ee5ffc-d1e5-41b5-982c-d9ef445d7b37)
+
 The advanced search page allows users to specify detailed criteria for their desired property and sort the results intuitively. This ensures that all users can find the type of property they desire in detail.
 
 ## Repository Structure
@@ -50,7 +74,10 @@ The codebase is divided into two main repositories: `client` for the frontend an
 - **Sliders**: Sliders on the home page and ad page are implemented using the Swiper package and Swiper Core, enhancing user experience with smooth and interactive image navigation.
 - **Icons**: Icons are sourced from the React Icons package (Font Awesome), adding visual elements to the user interface and improving usability.
 - **State Management**: Redux Toolkit and Redux Persistor are employed for saving user and theme information, facilitating state management across multiple pages and components. Redux Toolkit simplifies the usage of Redux in complex React applications, while Redux Persistor ensures persistent storage of state data, crucial for maintaining user preferences and data consistency.
-- **Navbar**: A highly dynamic and interactive navbar is created using Flowbite-React, adapting seamlessly to various screen sizes. It also allows users to switch between light and dark themes according to their preferences, enhancing user experience and accessibility.
+- **Navbar and Footer**: A highly dynamic and interactive navbar is created using Flowbite-React, adapting seamlessly to various screen sizes. It also allows users to switch between light and dark themes according to their preferences, enhancing user experience and accessibility.
+
+![Captura de tela 2024-02-23 071714](https://github.com/igor32648/mern-market/assets/92551032/a1599b41-5c55-450e-9886-d9795ff9e48c)
+![Captura de tela 2024-02-23 071830](https://github.com/igor32648/mern-market/assets/92551032/e3196939-82ec-4f9c-8185-e8ecdbfaa360)
 
 ### Backend (API) Repository
 - **Backend**: Built using Express.js 4.18.2, facilitating the creation of RESTful APIs and handling HTTP requests efficiently.
@@ -60,7 +87,11 @@ The codebase is divided into two main repositories: `client` for the frontend an
 
 ### Additional Notes
 - **Theme Switching**: The theme switching feature is implemented by creating a `themeSlice` using Redux, allowing users to seamlessly transition between light and dark themes. This enhances the modernity and comfort of the application, providing a personalized experience for users.
-- **Development Process**: The project follows the structure and concepts presented in the 11-hour YouTube tutorial series "React & Next.js Projects with Sahand." Additional features, such as optimizing the mobile view with the Flowbite package and implementing theme switching with Redux Toolkit, Redux Persistor, and Tailwind CSS, were added to enhance functionality and user experience.
+
+![Captura de tela 2024-02-23 071630](https://github.com/igor32648/mern-market/assets/92551032/8892afb0-ab66-49ae-bcc4-cf24f371fad9)
+![Captura de tela 2024-02-23 071605](https://github.com/igor32648/mern-market/assets/92551032/c5d91d5e-b672-40df-8bb4-337c39951a13)
+
+- **Development Process**: The project follows the structure and concepts presented in the 11-hour YouTube tutorial series "React & Next.js Projects with Sahand." Additional features, such as optimizing the mobile view with the Flowbite package for crating a Header/Footer and implementing theme switching with Redux Toolkit, Redux Persistor, and Tailwind CSS, were added to enhance functionality and user experience.
 
 - ### Cloning the Backend Repository
 
@@ -79,10 +110,10 @@ The codebase is divided into two main repositories: `client` for the frontend an
     ```
 
   **Install Dependencies for Backend**: Similarly, navigate to the backend directory and install the dependencies:
-
-    ```bash
-    npm install
-    ```
+    
+        ```bash
+        npm install
+        ```
 
 ### Setting Up Environment Variables
 
