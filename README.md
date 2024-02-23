@@ -91,13 +91,13 @@ The codebase is divided into two main repositories: `client` for the frontend an
 ![Captura de tela 2024-02-23 071630](https://github.com/igor32648/mern-market/assets/92551032/8892afb0-ab66-49ae-bcc4-cf24f371fad9)
 ![Captura de tela 2024-02-23 071605](https://github.com/igor32648/mern-market/assets/92551032/c5d91d5e-b672-40df-8bb4-337c39951a13)
 
-- **Development Process**: The project follows the structure and concepts presented in the 11-hour YouTube tutorial series "React & Next.js Projects with Sahand." Additional features, such as optimizing the mobile view with the Flowbite package for crating a Header/Footer and implementing theme switching with Redux Toolkit, Redux Persistor, and Tailwind CSS, were added to enhance functionality and user experience.
+- **Development Process**: The project follows the structure and concepts presented in the 11-hour YouTube tutorial from the "React & Next.js Projects with Sahand" channel. Additional features, such as optimizing the mobile view with the Flowbite package for crating a Header/Footer and implementing theme switching with Redux Toolkit, Redux Persistor, and Tailwind CSS, were added to enhance functionality and user experience.
 
 - ### Cloning the Backend Repository
 
 1. **Clone the Repository**: Open your terminal and navigate to the directory where you want to clone the repository. Then, execute the following command:
     ```
-    git clone <backend-repository-url>
+    git clone https://github.com/igor32648/mern-market/
     ```
 
 ### Installing Dependencies
