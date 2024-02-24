@@ -97,7 +97,7 @@ The codebase is divided into two main repositories: `client` for the frontend an
 
 1. **Clone the Repository**: Open your terminal and navigate to the directory where you want to clone the repository. Then, execute the following command:
     ```
-    git clone https://github.com/igor32648/mern-market/
+    git clone https://github.com/igor32648/mern-market.git
     ```
 
 ### Installing Dependencies
